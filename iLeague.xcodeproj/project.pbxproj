@@ -9,18 +9,40 @@
 /* Begin PBXBuildFile section */
 		A5006E1E2C0D90550025E0C5 /* iLeagueApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5006E1D2C0D90550025E0C5 /* iLeagueApp.swift */; };
 		A5006E202C0D90550025E0C5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5006E1F2C0D90550025E0C5 /* ContentView.swift */; };
-		A5006E222C0D90550025E0C5 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5006E212C0D90550025E0C5 /* Item.swift */; };
 		A5006E242C0D90580025E0C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5006E232C0D90580025E0C5 /* Assets.xcassets */; };
 		A5006E272C0D90580025E0C5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5006E262C0D90580025E0C5 /* Preview Assets.xcassets */; };
+		A5006E2E2C0D9CDA0025E0C5 /* AddPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5006E2D2C0D9CDA0025E0C5 /* AddPlayerView.swift */; };
+		A5006E332C0DC78A0025E0C5 /* PlayersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5006E322C0DC78A0025E0C5 /* PlayersView.swift */; };
+		A5006E352C0DE2410025E0C5 /* PlayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5006E342C0DE2410025E0C5 /* PlayerModel.swift */; };
+		A5006E382C0DE7840025E0C5 /* MatchesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5006E372C0DE7840025E0C5 /* MatchesView.swift */; };
+		A5006E3A2C0DE7A60025E0C5 /* AddMatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5006E392C0DE7A60025E0C5 /* AddMatchView.swift */; };
+		A5006E3C2C0DE7B10025E0C5 /* MatchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5006E3B2C0DE7B10025E0C5 /* MatchModel.swift */; };
+		A5006E3F2C0EC84E0025E0C5 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5006E3E2C0EC84E0025E0C5 /* Enums.swift */; };
+		A5006E412C0EDEB00025E0C5 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5006E402C0EDEB00025E0C5 /* Utility.swift */; };
+		A5006E442C0F0C1F0025E0C5 /* LeaderboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5006E432C0F0C1F0025E0C5 /* LeaderboardView.swift */; };
+		A5006E462C0F0C3F0025E0C5 /* LeaderboardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5006E452C0F0C3F0025E0C5 /* LeaderboardModel.swift */; };
+		A5006E492C0F10A90025E0C5 /* Array+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5006E482C0F10A90025E0C5 /* Array+Ext.swift */; };
+		A5006E4B2C0F12240025E0C5 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5006E4A2C0F12240025E0C5 /* Date+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A5006E1A2C0D90550025E0C5 /* iLeague.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iLeague.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5006E1D2C0D90550025E0C5 /* iLeagueApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iLeagueApp.swift; sourceTree = "<group>"; };
 		A5006E1F2C0D90550025E0C5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		A5006E212C0D90550025E0C5 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		A5006E232C0D90580025E0C5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A5006E262C0D90580025E0C5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A5006E2D2C0D9CDA0025E0C5 /* AddPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlayerView.swift; sourceTree = "<group>"; };
+		A5006E322C0DC78A0025E0C5 /* PlayersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersView.swift; sourceTree = "<group>"; };
+		A5006E342C0DE2410025E0C5 /* PlayerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerModel.swift; sourceTree = "<group>"; };
+		A5006E372C0DE7840025E0C5 /* MatchesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchesView.swift; sourceTree = "<group>"; };
+		A5006E392C0DE7A60025E0C5 /* AddMatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMatchView.swift; sourceTree = "<group>"; };
+		A5006E3B2C0DE7B10025E0C5 /* MatchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchModel.swift; sourceTree = "<group>"; };
+		A5006E3E2C0EC84E0025E0C5 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		A5006E402C0EDEB00025E0C5 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		A5006E432C0F0C1F0025E0C5 /* LeaderboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardView.swift; sourceTree = "<group>"; };
+		A5006E452C0F0C3F0025E0C5 /* LeaderboardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardModel.swift; sourceTree = "<group>"; };
+		A5006E482C0F10A90025E0C5 /* Array+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Ext.swift"; sourceTree = "<group>"; };
+		A5006E4A2C0F12240025E0C5 /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,9 +75,13 @@
 		A5006E1C2C0D90550025E0C5 /* iLeague */ = {
 			isa = PBXGroup;
 			children = (
+				A5006E472C0F10650025E0C5 /* Extension */,
+				A5006E3D2C0EC8430025E0C5 /* Common */,
 				A5006E1D2C0D90550025E0C5 /* iLeagueApp.swift */,
 				A5006E1F2C0D90550025E0C5 /* ContentView.swift */,
-				A5006E212C0D90550025E0C5 /* Item.swift */,
+				A5006E422C0F0C050025E0C5 /* Leaderboard */,
+				A5006E362C0DE7620025E0C5 /* Matches */,
+				A5006E312C0DC6FD0025E0C5 /* Players */,
 				A5006E232C0D90580025E0C5 /* Assets.xcassets */,
 				A5006E252C0D90580025E0C5 /* Preview Content */,
 			);
@@ -68,6 +94,53 @@
 				A5006E262C0D90580025E0C5 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		A5006E312C0DC6FD0025E0C5 /* Players */ = {
+			isa = PBXGroup;
+			children = (
+				A5006E2D2C0D9CDA0025E0C5 /* AddPlayerView.swift */,
+				A5006E322C0DC78A0025E0C5 /* PlayersView.swift */,
+				A5006E342C0DE2410025E0C5 /* PlayerModel.swift */,
+			);
+			path = Players;
+			sourceTree = "<group>";
+		};
+		A5006E362C0DE7620025E0C5 /* Matches */ = {
+			isa = PBXGroup;
+			children = (
+				A5006E392C0DE7A60025E0C5 /* AddMatchView.swift */,
+				A5006E372C0DE7840025E0C5 /* MatchesView.swift */,
+				A5006E3B2C0DE7B10025E0C5 /* MatchModel.swift */,
+			);
+			path = Matches;
+			sourceTree = "<group>";
+		};
+		A5006E3D2C0EC8430025E0C5 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				A5006E3E2C0EC84E0025E0C5 /* Enums.swift */,
+				A5006E402C0EDEB00025E0C5 /* Utility.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		A5006E422C0F0C050025E0C5 /* Leaderboard */ = {
+			isa = PBXGroup;
+			children = (
+				A5006E432C0F0C1F0025E0C5 /* LeaderboardView.swift */,
+				A5006E452C0F0C3F0025E0C5 /* LeaderboardModel.swift */,
+			);
+			path = Leaderboard;
+			sourceTree = "<group>";
+		};
+		A5006E472C0F10650025E0C5 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				A5006E482C0F10A90025E0C5 /* Array+Ext.swift */,
+				A5006E4A2C0F12240025E0C5 /* Date+Ext.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,9 +213,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5006E412C0EDEB00025E0C5 /* Utility.swift in Sources */,
+				A5006E492C0F10A90025E0C5 /* Array+Ext.swift in Sources */,
 				A5006E202C0D90550025E0C5 /* ContentView.swift in Sources */,
-				A5006E222C0D90550025E0C5 /* Item.swift in Sources */,
+				A5006E382C0DE7840025E0C5 /* MatchesView.swift in Sources */,
+				A5006E332C0DC78A0025E0C5 /* PlayersView.swift in Sources */,
+				A5006E4B2C0F12240025E0C5 /* Date+Ext.swift in Sources */,
 				A5006E1E2C0D90550025E0C5 /* iLeagueApp.swift in Sources */,
+				A5006E2E2C0D9CDA0025E0C5 /* AddPlayerView.swift in Sources */,
+				A5006E3A2C0DE7A60025E0C5 /* AddMatchView.swift in Sources */,
+				A5006E462C0F0C3F0025E0C5 /* LeaderboardModel.swift in Sources */,
+				A5006E442C0F0C1F0025E0C5 /* LeaderboardView.swift in Sources */,
+				A5006E3C2C0DE7B10025E0C5 /* MatchModel.swift in Sources */,
+				A5006E3F2C0EC84E0025E0C5 /* Enums.swift in Sources */,
+				A5006E352C0DE2410025E0C5 /* PlayerModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
