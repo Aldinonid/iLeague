@@ -17,11 +17,13 @@ struct PlayersView: View {
     var body: some View {
         List {
             ForEach(players) { player in
-                VStack(alignment: .leading) {
-                    Text(player.name)
-                        .font(.headline)
-                    
-                    Text("Level: \(player.level)")
+                NavigationLink(destination: AddPlayerView(isEdit: true)) {
+                    VStack(alignment: .leading) {
+                        Text(player.name)
+                            .font(.headline)
+                        
+                        Text("Level: \(player.level)")
+                    }
                 }
             }
             .onDelete(perform: deletePlayer)
@@ -30,9 +32,6 @@ struct PlayersView: View {
             AddPlayerView()
         })
         .toolbar {
-            ToolbarItem(placement: .topBarLeading) {
-                EditButton()
-            }
             ToolbarItem {
                 Button("Add") {
                     isPresented.toggle()

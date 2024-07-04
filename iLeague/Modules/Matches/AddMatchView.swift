@@ -27,7 +27,7 @@ struct AddMatchView: View {
                 DatePicker(
                     "Match Date", 
                     selection: $date,
-                    displayedComponents: [.date]
+                    displayedComponents: .date
                 )
                 .datePickerStyle(.compact)
                 
@@ -98,11 +98,6 @@ struct AddMatchView: View {
     }
 }
 
-#Preview {
-    AddMatchView()
-}
-
-
 extension AddMatchView {
     
     var disableForm: Bool {
@@ -132,7 +127,7 @@ extension AddMatchView {
     
     func Selection(_ playerField: Player?, placeholder: String = "", onSelect: @escaping (Player) -> Void) -> some View {
         Menu {
-            ForEach(players) { player in
+            ForEach(players.sorted(by: \.name)) { player in
                 Button(player.name) {
                     onSelect(player)
                 }
@@ -240,4 +235,8 @@ extension AddMatchView {
         .listStyle(.plain)
     }
     
+}
+
+#Preview {
+    AddMatchView()
 }

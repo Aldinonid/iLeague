@@ -14,7 +14,12 @@ struct AddPlayerView: View {
     @Environment(\.dismiss) private var dismiss
     @State private var name = ""
     @State private var level = ""
+    @State private var isEdit: Bool = false
     @FocusState private var focusField: Field?
+    
+    init(isEdit: Bool = false) {
+        self.isEdit = isEdit
+    }
     
     var body: some View {
         NavigationStack {
@@ -42,11 +47,13 @@ struct AddPlayerView: View {
                 Spacer()
             }
             .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    Button {
-                        dismiss()
-                    } label: {
-                        Text("Cancel")
+                if !isEdit {
+                    ToolbarItem(placement: .topBarLeading) {
+                        Button {
+                            dismiss()
+                        } label: {
+                            Text("Cancel")
+                        }
                     }
                 }
                 
