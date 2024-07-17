@@ -20,6 +20,9 @@ struct AddMatchView: View {
     @State private var scoreA = ""
     @State private var scoreB = ""
     @State private var date = Date()
+    @State private var showAlert: Bool = false
+    @State var isEdit: Bool = false
+    @State var match: MatchModel? = nil
     
     var body: some View {
         NavigationStack {
@@ -73,14 +76,16 @@ struct AddMatchView: View {
                 
                 Spacer()
             }
-            .navigationTitle("Add new match 🏸")
+            .navigationTitle(isEdit ? "Edit match" : "Add new match 🏸")
             .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    Button {
-                        dismiss()
-                    } label: {
-                        Text("Cancel")
-                    }
+                if !isEdit {
+                    ToolbarItem(placement: .topBarLeading) {
+                        Button {
+                            dismiss()
+                        } label: {
+                            Text("Cancel")
+                        }
+                    }                    
                 }
                 
                 ToolbarItem(placement: .topBarTrailing) {
@@ -93,12 +98,53 @@ struct AddMatchView: View {
                     .disabled(disableForm)
                 }
             }
+            .alert(isPresented: $showAlert, content: {
+                Alert(title: Text("There was an error!"))
+            })
+            .onAppear {
+                guard let match = self.match else { return }
+                if isEdit {
+                    setupExistMatch(match)
+                }
+            }
             .padding()
         }
     }
 }
 
 extension AddMatchView {
+    
+    func setupExistMatch(_ match: MatchModel) {
+        self.player1 = match.player1
+        self.player2 = match.player2
+        self.player3 = match.player3
+        self.player3 = match.player3
+        self.scoreA = String(match.scoreA)
+        self.scoreB = String(match.scoreB)
+        self.date = match.date.convertToDate()
+    }
+    
+    func updatePlayer() {
+        guard let match = match,
+              let player1,
+              let player2,
+              let player3,
+              let player4 else { return }
+        match.player1 = player1
+        match.player2 = player2
+        match.player3 = player3
+        match.player4 = player4
+        match.scoreA = Int(self.scoreA) ?? 0
+        match.scoreB = Int(self.scoreB) ?? 0
+        match.date = self.date.convertDateWithFormat(format: DateFormat.fullDate.rawValue)
+        do {
+            try modelContext.save()
+        } catch {
+            showAlert = true
+            print(error.localizedDescription)
+        }
+        dismiss()
+    }
     
     var disableForm: Bool {
         scoreA.isEmpty ||
@@ -120,7 +166,7 @@ extension AddMatchView {
                                player2: player2,
                                player3: player3,
                                player4: player4,
-                               date: date)
+                               date: date.convertDateWithFormat(format: DateFormat.fullDate.rawValue))
         modelContext.insert(match)
         dismiss()
     }

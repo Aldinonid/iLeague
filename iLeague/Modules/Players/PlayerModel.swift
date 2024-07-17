@@ -10,11 +10,11 @@ import SwiftData
 
 @Model
 final class Player {
-    let name: String
-    let level: String
-    let shoes: String?
-    let racket: String?
-    let photo: String?
+    var name: String
+    var level: String
+    var shoes: String?
+    var racket: String?
+    var photo: String?
     
     init(name: String, level: String) {
         self.name = name

@@ -67,7 +67,7 @@ struct ScoreboardView: View {
                 Text("Finish")
                     .font(.title)
                     .frame(maxWidth: .infinity, maxHeight: 80)
-                    .background(Color.gray.opacity(0.1))
+//                    .background(Color.gray.opacity(0.1))
             })
             
         }
@@ -87,7 +87,7 @@ extension ScoreboardView {
                                player2: player2,
                                player3: player3,
                                player4: player4,
-                               date: Date())
+                               date: Date().convertDateWithStyle())
         modelContext.insert(match)
     }
     

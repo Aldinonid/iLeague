@@ -23,6 +23,7 @@
 		A5006E462C0F0C3F0025E0C5 /* LeaderboardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5006E452C0F0C3F0025E0C5 /* LeaderboardModel.swift */; };
 		A5006E492C0F10A90025E0C5 /* Array+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5006E482C0F10A90025E0C5 /* Array+Ext.swift */; };
 		A5006E4B2C0F12240025E0C5 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5006E4A2C0F12240025E0C5 /* Date+Ext.swift */; };
+		A5529E952C430D9D0071D3C3 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5529E942C430D9D0071D3C3 /* String+Ext.swift */; };
 		A55BDBF32C31EFEB00FF1C72 /* Sequence+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55BDBF22C31EFEB00FF1C72 /* Sequence+Ext.swift */; };
 		A5C1E3F02C37129300579BAF /* ScoreboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C1E3EF2C37129300579BAF /* ScoreboardView.swift */; };
 		A5C1E3F22C37129C00579BAF /* ScoreboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C1E3F12C37129C00579BAF /* ScoreboardViewModel.swift */; };
@@ -48,6 +49,7 @@
 		A5006E452C0F0C3F0025E0C5 /* LeaderboardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardModel.swift; sourceTree = "<group>"; };
 		A5006E482C0F10A90025E0C5 /* Array+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Ext.swift"; sourceTree = "<group>"; };
 		A5006E4A2C0F12240025E0C5 /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
+		A5529E942C430D9D0071D3C3 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		A55BDBF22C31EFEB00FF1C72 /* Sequence+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+Ext.swift"; sourceTree = "<group>"; };
 		A5C1E3EF2C37129300579BAF /* ScoreboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreboardView.swift; sourceTree = "<group>"; };
 		A5C1E3F12C37129C00579BAF /* ScoreboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreboardViewModel.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				A5006E482C0F10A90025E0C5 /* Array+Ext.swift */,
 				A5006E4A2C0F12240025E0C5 /* Date+Ext.swift */,
 				A55BDBF22C31EFEB00FF1C72 /* Sequence+Ext.swift */,
+				A5529E942C430D9D0071D3C3 /* String+Ext.swift */,
 				A5C1E3F52C3728C200579BAF /* Button+Ext.swift */,
 			);
 			path = Extension;
@@ -190,6 +193,8 @@
 			dependencies = (
 			);
 			name = iLeague;
+			packageProductDependencies = (
+			);
 			productName = iLeague;
 			productReference = A5006E1A2C0D90550025E0C5 /* iLeague.app */;
 			productType = "com.apple.product-type.application";
@@ -218,6 +223,8 @@
 				Base,
 			);
 			mainGroup = A5006E112C0D90550025E0C5;
+			packageReferences = (
+			);
 			productRefGroup = A5006E1B2C0D90550025E0C5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -250,6 +257,7 @@
 				A5006E382C0DE7840025E0C5 /* MatchesView.swift in Sources */,
 				A5006E332C0DC78A0025E0C5 /* PlayersView.swift in Sources */,
 				A5006E4B2C0F12240025E0C5 /* Date+Ext.swift in Sources */,
+				A5529E952C430D9D0071D3C3 /* String+Ext.swift in Sources */,
 				A5C1E3F42C37181800579BAF /* Selection.swift in Sources */,
 				A5006E1E2C0D90550025E0C5 /* iLeagueApp.swift in Sources */,
 				A55BDBF32C31EFEB00FF1C72 /* Sequence+Ext.swift in Sources */,

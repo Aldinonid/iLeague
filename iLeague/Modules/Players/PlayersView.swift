@@ -17,7 +17,7 @@ struct PlayersView: View {
     var body: some View {
         List {
             ForEach(players) { player in
-                NavigationLink(destination: AddPlayerView(isEdit: true)) {
+                NavigationLink(destination: AddPlayerView(isEdit: true, player: player)) {
                     VStack(alignment: .leading) {
                         Text(player.name)
                             .font(.headline)
@@ -27,6 +27,9 @@ struct PlayersView: View {
                 }
             }
             .onDelete(perform: deletePlayer)
+        }
+        .refreshable {
+            
         }
         .sheet(isPresented: $isPresented, content: {
             AddPlayerView()

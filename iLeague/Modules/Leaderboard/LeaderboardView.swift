@@ -51,7 +51,7 @@ extension LeaderboardView {
     }
     
     func fetchMatch() {
-        filteredListMatches = listMatches.uniques(by: \.date).map { $0.date.convertDateWithFormat() }
+        filteredListMatches = listMatches.uniques(by: \.date).map { $0.date }
         fetchPlayers()
     }
     

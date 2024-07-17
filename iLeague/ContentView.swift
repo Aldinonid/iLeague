@@ -12,6 +12,14 @@ struct ContentView: View {
     var body: some View {
         TabView {
             NavigationStack {
+                MatchesView()
+            }
+            .tabItem {
+                Image(systemName: "apps.ipad.landscape")
+                Text("Match")
+            }
+            
+            NavigationStack {
                 ScoreboardView()
             }
             .tabItem {
@@ -25,14 +33,6 @@ struct ContentView: View {
             .tabItem {
                 Image(systemName: "person.fill")
                 Text("Players")
-            }
-            
-            NavigationStack {
-                MatchesView()
-            }
-            .tabItem {
-                Image(systemName: "apps.ipad.landscape")
-                Text("Match")
             }
             
             NavigationStack {

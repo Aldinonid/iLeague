@@ -14,12 +14,10 @@ struct AddPlayerView: View {
     @Environment(\.dismiss) private var dismiss
     @State private var name = ""
     @State private var level = ""
-    @State private var isEdit: Bool = false
+    @State var isEdit: Bool = false
+    @State var player: Player? = nil
+    @State private var showAlert: Bool = false
     @FocusState private var focusField: Field?
-    
-    init(isEdit: Bool = false) {
-        self.isEdit = isEdit
-    }
     
     var body: some View {
         NavigationStack {
@@ -30,9 +28,7 @@ struct AddPlayerView: View {
                     .clipShape(RoundedRectangle(cornerRadius: 10))
                     .submitLabel(.next)
                     .focused($focusField, equals: .name)
-                    .onSubmit {
-                        focusField = .level
-                    }
+                    .onSubmit { focusField = .level }
                 
                 TextField("Level", text: $level)
                     .padding()
@@ -40,12 +36,11 @@ struct AddPlayerView: View {
                     .clipShape(RoundedRectangle(cornerRadius: 10))
                     .submitLabel(.done)
                     .focused($focusField, equals: .level)
-                    .onSubmit {
-                        savePlayer()
-                    }
+                    .onSubmit { savePlayer() }
                 
                 Spacer()
             }
+            .navigationTitle(isEdit ? "Edit Player" : "Add Player")
             .toolbar {
                 if !isEdit {
                     ToolbarItem(placement: .topBarLeading) {
@@ -56,14 +51,22 @@ struct AddPlayerView: View {
                         }
                     }
                 }
-                
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
-                        savePlayer()
+                        isEdit ? updatePlayer() : savePlayer()
                     } label: {
                         Text("Done")
                     }
                     .disabled(name.isEmpty || level.isEmpty)
+                }
+            }
+            .alert(isPresented: $showAlert, content: {
+                Alert(title: Text("There was an error!"))
+            })
+            .onAppear {
+                guard let player = self.player else { return }
+                if isEdit {
+                    setupExistPlayer(player)
                 }
             }
             .padding()
@@ -77,6 +80,23 @@ struct AddPlayerView: View {
 
 
 extension AddPlayerView {
+    
+    func setupExistPlayer(_ player: Player) {
+        self.name = player.name
+        self.level = player.level
+    }
+    
+    func updatePlayer() {
+        player?.name = self.name
+        player?.level = self.level
+        do {
+            try modelContext.save()
+        } catch {
+            showAlert = true
+            print(error.localizedDescription)
+        }
+        dismiss()
+    }
     
     func savePlayer() {
         guard !name.isEmpty, !level.isEmpty else {

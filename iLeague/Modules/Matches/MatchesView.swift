@@ -12,7 +12,7 @@ struct MatchesView: View {
     
     @Environment(\.modelContext) var modelContext
     @Query private var matches: [MatchModel]
-    @State private var listDates: [Date] = []
+    @State private var listDates: [String] = []
     @State private var filteredMatches: [MatchModel] = []
     @State private var isPresented: Bool = false
     @State private var count: Int = 0
@@ -21,15 +21,17 @@ struct MatchesView: View {
         List {
             ForEach(Array(filteredMatches.enumerated()), id: \.offset) { index, match in
                 Section {
-                    VStack(alignment: .leading) {
-                        HStack {
-                            Text("Match \(index + 1)")
-                            Spacer()
-                            Text(winTeam(match))
-                                .font(.headline)
+                    NavigationLink(destination: AddMatchView(isEdit: true, match: match)) {
+                        VStack(alignment: .leading) {
+                            HStack {
+                                Text("Match \(index + 1)")
+                                Spacer()
+                                Text(match.winTeam())
+                                    .font(.headline)
+                            }
+                            Divider()
+                            matchView(match)
                         }
-                        Divider()
-                        matchView(match)
                     }
                 }
             }
@@ -41,13 +43,16 @@ struct MatchesView: View {
         })
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {
-                ShareLink(item: generateCSV(filteredMatches))
+                ShareLink(item:generateCSV(filteredMatches)) {
+                    Image(systemName: "square.and.arrow.up")
+                }
             }
+            
             ToolbarItem(placement: .topBarTrailing) {
                 HStack {
                     Menu {
                         ForEach(listDates, id: \.self) { date in
-                            Button(date.convertDateWithFormat()) {
+                            Button(date) {
                                 selectDateMatch(date: date)
                             }
                         }
@@ -61,7 +66,7 @@ struct MatchesView: View {
                 }
             }
         }
-        .navigationTitle(filteredMatches.first?.date.convertDateWithFormat() ?? "Match List")
+        .navigationTitle(filteredMatches.first?.date ?? "Match List")
         .onAppear { fetchMatches() }
     }
     
@@ -75,32 +80,31 @@ struct MatchesView: View {
 
 extension MatchesView {
     
-    func selectDateMatch(date: Date) {
-        filteredMatches = matches.filter { $0.date == date }
+    func selectDateMatch(date: String) {
+        print("-s matches: \(matches.uniques(by: \.date).map{$0.date})")
+        print("-s date: \(date.convertToDate().convertDateWithFormat(format: DateFormat.fullDate.rawValue))")
+        filteredMatches = matches.uniques(by: \.date).filter {
+            $0.date == date.convertToDate().convertDateWithFormat(format: DateFormat.fullDate.rawValue)
+        }
     }
     
     func fetchMatches() {
-        listDates = matches.uniques(by: \.date).map { $0.date }
+        listDates = matches.map { $0.date.convertToDateStyle() }.unique()
         filteredMatches = matches.filter { $0.date == matches.first?.date }
     }
     
     func generateCSV(_ data: [MatchModel]) -> URL {
-        let todayDate = Date().convertDateWithFormat()
         var fileURL: URL!
-        let heading = "levelMatch,player1,player2,player3,player4,score\n"
-        let rows = data.map {
-            "\($0.player1.level)\($0.player2.level) - \($0.player3.level)\($0.player4.level)," +
-            "\($0.player1.name),\($0.player2.name),\($0.player3.name),\($0.player4.name)," +
-            "\($0.scoreA) - \($0.scoreB)"
-        }
+        let heading = "player1,player2,player3,player4,score\n"
+        let rows = data.map { $0.winLoseTeam() }
         let stringData = heading + rows.joined(separator: "\n")
         
         do {
             let path = try FileManager.default.url(for: .documentDirectory, in: .allDomainsMask, appropriateFor: nil, create: false)
-            fileURL = path.appending(path: "Match Data - \(todayDate).csv", directoryHint: .checkFileSystem)
+            fileURL = path.appendingPathComponent("Match_Data.csv")
             try stringData.write(to: fileURL, atomically: true, encoding: .utf8)
         } catch {
-            print("Error generate csv file")
+            print("Error generate file")
         }
         return fileURL
     }

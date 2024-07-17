@@ -87,10 +87,6 @@ enum PlayerSelected {
 //    return total
 //}
 
-func winTeam(_ match: MatchModel) -> String {
-    match.scoreA > match.scoreB ? "\(match.player1.name) - \(match.player2.name)" : "\(match.player3.name) - \(match.player4.name)"
-}
-
 //func scoreCalculation(_ match: MatchModel) {
 //    if match.scoreA > match.scoreB {
 //        pointPlayer1 = winScoreCalculation(.player1)
